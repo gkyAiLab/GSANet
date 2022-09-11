@@ -1,0 +1,29 @@
+
+name: GSANet_0822
+model: condition
+distortion: sr
+scale: 1
+gpu_ids: [3]
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: GSANet_latest_G
+    mode: LDRs
+    # dataroot_LDRs: /media/test/8026ac84-a5ee-466b-affa-f8c81a423d9b/lfy/HDR/HDR_dataset/NTIRE22_HDR_valid_input
+    # dataroot_LDRs: /media/test/8026ac84-a5ee-466b-affa-f8c81a423d9b/lfy/HDR/HDR_dataset/testing_input_part1
+    # dataroot_LDRs: /media/test/8026ac84-a5ee-466b-affa-f8c81a423d9b/lfy/HDR/HDR_dataset/testing_input_part2
+    dataroot_LDRs: D:\A-Document\Code\Github\HDR_dataset\test\test_sub
+    condition: image
+    
+#### network structures
+network_G:
+  which_model_G: GSANet  ### 
+  in_nc: 3
+  out_nc: 3
+  nf: 64 
+  act_type: relu 
+  
+#### path
+path:
+  root: ./
+  pretrain_model_G: ../pretrained_models/latest_G.pth

@@ -1,0 +1,82 @@
+#### general settings
+name: GSANet
+model: condition
+use_tb_logger: true
+distortion: sr
+scale: 1
+gpu_ids: [2]
+
+#### datasets
+datasets:
+  train:
+    name: LDRs2HDR
+    mode: LDRsToHDR
+
+    dataroot_short: /data/lfy/HDR/HDR_dataset/train_1424/short_sub
+    dataroot_medium: /data/lfy/HDR/HDR_dataset/train_1424/medium_sub
+    dataroot_long: /data/lfy/HDR/HDR_dataset/train_1424/long_sub
+    dataroot_exp: /data/lfy/HDR/HDR_dataset/train_1424/exposures
+
+    dataroot_GT: /data/lfy/HDR/HDR_dataset/train_1424/gt_sub
+    dataroot_ratio: /data/lfy/HDR/HDR_dataset/train_1424/alignratio
+    use_shuffle: true
+    n_workers: 8
+    batch_size: 8
+    GT_size: 256
+    use_flip: true
+    use_rot: true
+    condition: image
+  val:
+    name: LDRs2HDR
+    mode: LDRsToHDR
+
+    dataroot_short: /data/lfy/HDR/HDR_dataset/val_70/short
+    dataroot_medium: /data/lfy/HDR/HDR_dataset/val_70/medium
+    dataroot_long: /data/lfy/HDR/HDR_dataset/val_70/long
+    dataroot_exp: /data/lfy/HDR/HDR_dataset/val_70/exposures
+
+    dataroot_GT: /data/lfy/HDR/HDR_dataset/val_70/gt
+    dataroot_ratio: /data/lfy/HDR/HDR_dataset/val_70/alignratio
+
+    batch_size: 1
+    condition: image
+
+#### network structures
+network_G:
+  which_model_G: GSANet
+  in_nc: 3
+  out_nc: 3
+  nf: 64 
+  act_type: relu 
+
+#### path
+path:
+  root: ./
+  # pretrain_model_G: ../experiments/...
+  strict_load: false
+  # resume_state: ../experiments/model_199G_CAB_0309/training_state/1000000.state
+  # iter: '1000000'
+
+#### training settings: learning rate scheme, loss
+train:
+  lr_G: !!float 2e-4
+  lr_scheme: MultiStepLR # MultiStepLR | CosineAnnealingLR_Restart
+  beta1: 0.9
+  beta2: 0.99
+  niter: 1500000 # 600000 
+  warmup_iter: -1  # no warm up
+
+  lr_scheme: MultiStepLR
+  lr_steps: [200000, 400000, 600000, 800000]
+  lr_gamma: 0.5
+
+  pixel_criterion: l1 # l1 | l2 | tanh_l1 | tanh_l2
+  pixel_weight: 1.0
+
+  manual_seed: 10
+  val_freq: !!float 5e3
+
+#### logger
+logger:
+  print_freq: 100
+  save_checkpoint_freq: !!float 5e3

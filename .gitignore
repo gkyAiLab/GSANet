@@ -1,0 +1,11 @@
+# system ignore
+.DS_Store
+
+# result ignore
+/results/*
+
+*.zip
+
+/experiments/*
+
+
