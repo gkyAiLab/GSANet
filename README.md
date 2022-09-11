@@ -1,7 +1,11 @@
 # Gamma-enhanced with spatial attention Network for Efficient High Dynamic Range Imaging
 By Fangya Li, Ruipeng Gang, Chenghua Li, Jinjing Li, Sai Ma, Chengming Liu and Yizhen Cao
 
-https://openaccess.thecvf.com/content/CVPR2022W/NTIRE/html/Li_Gamma-Enhanced_Spatial_Attention_Network_for_Efficient_High_Dynamic_Range_Imaging_CVPRW_2022_paper.html
+This project is supported by UHD TV Research and Application Laboratory
+
+https://github.com/gkyAiLab
+
+Now you can read the paper in [there](https://openaccess.thecvf.com/content/CVPR2022W/NTIRE/html/Li_Gamma-Enhanced_Spatial_Attention_Network_for_Efficient_High_Dynamic_Range_Imaging_CVPRW_2022_paper.html).
 
 ## Overview
 Overview of the network:
