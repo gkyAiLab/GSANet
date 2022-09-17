@@ -1,11 +1,9 @@
 # Gamma-enhanced with spatial attention Network for Efficient High Dynamic Range Imaging
 By Fangya Li, Ruipeng Gang, Chenghua Li, Jinjing Li, Sai Ma, Chengming Liu and Yizhen Cao
 
-This project is supported by UHD TV Research and Application Laboratory
+This project is supported by [UHD TV Research and Application Laboratory](https://github.com/gkyAiLab)
 
-https://github.com/gkyAiLab
-
-Now you can read the paper in [there](https://openaccess.thecvf.com/content/CVPR2022W/NTIRE/html/Li_Gamma-Enhanced_Spatial_Attention_Network_for_Efficient_High_Dynamic_Range_Imaging_CVPRW_2022_paper.html).
+Now you can read the paper in [there](https://openaccess.thecvf.com/content/CVPR2022W/NTIRE/html/Li_Gamma-Enhanced_Spatial_Attention_Network_for_Efficient_High_Dynamic_Range_Imaging_CVPRW_2022_paper.html). The code framework is inspired by [HDRUNet](https://github.com/chxy95/HDRUNet).
 
 ## Overview
 Overview of the network:
@@ -37,7 +35,7 @@ pip install -r requirements.txt
 
 ### How to test
 
-- Modify `dataroot_LQ` and `pretrain_model_G` (you can also use the pretrained model which is provided in the `./pretrained_model`) in `./codes/options/test/test_HDR.yml`, prepare 'results' folder, then run
+- Modify `dataroot_LDRs` and `pretrain_model_G` (you can also use the pretrained model which is provided in the `./pretrained_model`) in `./codes/options/test/test_HDR.yml`, prepare 'results' folder, then run
 ```
 cd codes
 python test.py -opt options/test/test_HDR.yml
@@ -52,7 +50,7 @@ cd scripts
 python extract_subimgs_single.py
 ```
 
-- Modify `dataroot_LQ` and `dataroot_GT` in `./codes/options/train/train_HDR.yml`, then run
+- Modify `dataroot_short` 、`dataroot_medium` 、`dataroot_long`、`dataroot_exp` and `dataroot_ratio` 、`dataroot_GT` of train and val in `./codes/options/train/train_HDR.yml`, then run
 ```
 cd codes
 python train.py -opt options/train/train_HDR.yml
@@ -71,6 +69,10 @@ cd scripts
 python tonemapped_visualization.py
 ```
 to visualize the images.
+
+### Our model
+
+Now our model is not public in there for now. If you want to get it, please contact gangruipeng@abs.ac.cn for help. There is just for the framework record.
 
 ## Acknowledgment
 The code is inspired by [HDRUNet](https://github.com/chxy95/HDRUNet).
