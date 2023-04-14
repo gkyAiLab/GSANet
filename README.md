@@ -72,7 +72,7 @@ to visualize the images.
 
 ### Our model
 
-Now our model is not public in there for now. If you want to get it, please contact gangruipeng@abs.ac.cn for help. There is just for the framework record.
+Now our model is public in there for now. Thank you for your visit.
 
 ## Acknowledgment
 The code is inspired by [HDRUNet](https://github.com/chxy95/HDRUNet).
