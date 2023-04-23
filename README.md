@@ -55,7 +55,7 @@ python extract_subimgs_single.py
 cd codes
 python train.py -opt options/train/train_HDR.yml
 ```
-The models and training states will be saved to `./experiments/name`.
+The models and training states will be saved to `./experiments/GSANet/models/latest_G.pth`.
 
 ### Measure operations and runtime
 
